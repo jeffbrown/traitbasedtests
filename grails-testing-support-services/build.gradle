@@ -9,5 +9,5 @@ repositories {
 }
 
 dependencies {
-    compile "org.grails:grails-plugin-testing:$grailsVersion"
+    compile project(':grails-testing-support')
 }

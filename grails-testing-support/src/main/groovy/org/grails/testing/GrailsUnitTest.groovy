@@ -1,12 +1,8 @@
 package org.grails.testing
 
 import grails.core.GrailsApplication
-import grails.test.mixin.support.SkipMethod
 import grails.test.runtime.TestRuntime
 import grails.test.runtime.TestRuntimeFactory
-import org.grails.plugins.testing.GrailsMockHttpServletRequest
-import org.grails.plugins.testing.GrailsMockHttpServletResponse
-import org.grails.web.servlet.mvc.GrailsWebRequest
 import org.springframework.context.ConfigurableApplicationContext
 
 trait GrailsUnitTest<T> {
@@ -23,18 +19,6 @@ trait GrailsUnitTest<T> {
 
     GrailsApplication getGrailsApplication() {
         (GrailsApplication)runtime.getValue("grailsApplication")
-    }
-
-    GrailsWebRequest getWebRequest() {
-        (GrailsWebRequest)runtime.getValue("webRequest")
-    }
-
-    GrailsMockHttpServletRequest getRequest() {
-        return (GrailsMockHttpServletRequest)getWebRequest().getCurrentRequest()
-    }
-
-    GrailsMockHttpServletResponse getResponse() {
-        return (GrailsMockHttpServletResponse)getWebRequest().getCurrentResponse()
     }
 
     public TestRuntime getRuntime() {

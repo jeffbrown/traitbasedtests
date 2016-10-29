@@ -5,7 +5,10 @@ import grails.core.GrailsControllerClass
 import grails.util.GrailsMetaClassUtils
 import groovy.transform.CompileStatic
 import org.grails.core.artefact.ControllerArtefactHandler
+import org.grails.plugins.testing.GrailsMockHttpServletRequest
+import org.grails.plugins.testing.GrailsMockHttpServletResponse
 import org.grails.testing.GrailsUnitTest
+import org.grails.web.servlet.mvc.GrailsWebRequest
 import org.grails.web.util.GrailsApplicationAttributes
 
 trait ControllerUnitTest<T>  extends GrailsUnitTest<T> {
@@ -36,6 +39,18 @@ trait ControllerUnitTest<T>  extends GrailsUnitTest<T> {
         return callable.call()
     }
 
+    GrailsWebRequest getWebRequest() {
+        (GrailsWebRequest)runtime.getValue("webRequest")
+    }
+
+    GrailsMockHttpServletRequest getRequest() {
+        return (GrailsMockHttpServletRequest)getWebRequest().getCurrentRequest()
+    }
+
+    GrailsMockHttpServletResponse getResponse() {
+        return (GrailsMockHttpServletResponse)getWebRequest().getCurrentResponse()
+    }
+
     @CompileStatic
     private GrailsClass createAndEnhance(Class controllerClass) {
         final GrailsControllerClass controllerArtefact = (GrailsControllerClass)grailsApplication.addArtefact(ControllerArtefactHandler.TYPE, controllerClass)
@@ -46,5 +61,4 @@ trait ControllerUnitTest<T>  extends GrailsUnitTest<T> {
     T getController() {
         getCollaboratorInstance()
     }
-
 }
