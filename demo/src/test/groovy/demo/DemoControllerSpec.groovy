@@ -10,7 +10,27 @@ class DemoControllerSpec extends Specification implements ControllerUnitTest<Dem
         controller.hello()
 
         then:
+        status == 200
         response.text == 'Hello, World!'
+    }
+
+    void 'test invalid request method'() {
+        when:
+        request.method = 'POST'
+        controller.clearDatabase()
+
+        then:
+        status == 405
+    }
+
+    void 'test valid request method'() {
+        when:
+        request.method = 'DELETE'
+        controller.clearDatabase()
+
+        then:
+        status == 200
+        response.text == 'Success'
     }
 }
 

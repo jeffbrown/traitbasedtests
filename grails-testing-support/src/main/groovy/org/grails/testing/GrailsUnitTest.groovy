@@ -24,18 +24,6 @@ trait GrailsUnitTest<T> {
         (GrailsApplication)runtime.getValue("grailsApplication")
     }
 
-    GrailsWebRequest getWebRequest() {
-        (GrailsWebRequest)runtime.getValue("webRequest")
-    }
-
-    GrailsMockHttpServletRequest getRequest() {
-        return (GrailsMockHttpServletRequest)getWebRequest().getCurrentRequest()
-    }
-
-    GrailsMockHttpServletResponse getResponse() {
-        return (GrailsMockHttpServletResponse)getWebRequest().getCurrentResponse()
-    }
-
     public TestRuntime getRuntime() {
         if(currentRuntime == null) {
             currentRuntime = TestRuntimeFactory.getRuntimeForTestClass(this.class);
