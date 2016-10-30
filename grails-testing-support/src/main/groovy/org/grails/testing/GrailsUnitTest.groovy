@@ -1,7 +1,6 @@
 package org.grails.testing
 
 import grails.core.GrailsApplication
-import grails.test.mixin.support.SkipMethod
 import grails.test.runtime.TestRuntime
 import grails.test.runtime.TestRuntimeFactory
 import org.grails.plugins.testing.GrailsMockHttpServletRequest
