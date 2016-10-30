@@ -11,5 +11,5 @@ repositories {
 dependencies {
     compile "org.grails:grails-plugin-testing:$grailsVersion"
     compile "org.grails:grails-web-common:$grailsVersion"
-    compile "org.springframework.boot:spring-boot-starter-tomcat:$bootVersion"
+    compile 'javax.servlet:javax.servlet-api:3.0.1'
 }
