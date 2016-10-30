@@ -54,8 +54,7 @@ dependencies {
     testRuntime "org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1"
     testRuntime "net.sourceforge.htmlunit:htmlunit:2.18"
 
-    testCompile project(':grails-testing-support-controllers')
-    testCompile project(':grails-testing-support-services')
+    testCompile project(':grails-testing-support')
 }
 
 

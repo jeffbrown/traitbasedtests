@@ -1,5 +1,2 @@
-include 'grails-testing-support',
-        'grails-testing-support-controllers',
-        'grails-testing-support-services',
-        'demo'
+include 'grails-testing-support', 'demo'
 

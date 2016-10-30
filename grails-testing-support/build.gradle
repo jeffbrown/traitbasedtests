@@ -10,4 +10,6 @@ repositories {
 
 dependencies {
     compile "org.grails:grails-plugin-testing:$grailsVersion"
+    compile "org.grails:grails-web-common:$grailsVersion"
+    compile "org.springframework.boot:spring-boot-starter-tomcat:$bootVersion"
 }
